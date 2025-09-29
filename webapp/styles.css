@@ -1,0 +1,119 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  --accent: #2c7be5;
+  --bg: color-mix(in srgb, var(--accent) 6%, transparent);
+  --border: color-mix(in srgb, currentColor 20%, transparent);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: #1f2933;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header h1 {
+  margin-bottom: 0.25rem;
+}
+
+header p {
+  margin-top: 0;
+  color: #334155;
+}
+
+.loader {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.file-input,
+.toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.file-input input,
+.toggle input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.player {
+  margin-bottom: 1rem;
+}
+
+audio {
+  width: 100%;
+}
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: clamp(40vh, 60vh, 600px);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.cue {
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  transition: border-color 120ms ease, transform 120ms ease, background 120ms ease;
+  cursor: pointer;
+}
+
+.cue .pt {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.cue .en {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #475569;
+}
+
+.transcript.hide-translation .cue .en {
+  display: none;
+}
+
+.cue.active {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  .cue {
+    padding: 0.6rem 0.75rem;
+  }
+}
