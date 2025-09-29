@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notebook LM Podcast Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Notebook LM Podcast Player</h1>
+        <p>
+          Load a Portuguese audio file and its WebVTT transcript to practice
+          listening with synchronized subtitles and English translations.
+        </p>
+      </header>
+
+      <section class="loader">
+        <label class="file-input">
+          <span>Audio file (MP3 / MP4 / WAV)</span>
+          <input id="audioInput" type="file" accept="audio/*,video/mp4" />
+        </label>
+        <label class="file-input">
+          <span>Transcript (WebVTT)</span>
+          <input id="vttInput" type="file" accept=".vtt" />
+        </label>
+        <label class="toggle">
+          <input id="translationToggle" type="checkbox" checked />
+          <span>Show English translation</span>
+        </label>
+      </section>
+
+      <section class="player">
+        <audio id="audioPlayer" controls preload="metadata"></audio>
+      </section>
+
+      <section class="transcript" id="transcript"></section>
+    </main>
+
+    <template id="cueTemplate">
+      <article class="cue" data-start="0" data-end="0">
+        <p class="pt"></p>
+        <p class="en"></p>
+      </article>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
